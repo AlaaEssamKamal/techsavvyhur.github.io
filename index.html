@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechSavvy</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Animation on scroll */
+    .hidden {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hidden">
+    <img src="images/logo.jpeg" alt="TechSavvy Logo">
+    <h1>اهلا بيكم في TechSavvy</h1>
+    <p>بنخليك دايمًا سابق بخطوة في عالم التكنولوجيا 🚀</p>
+  </header>
+
+  <section class="hidden">
+    <h2>مين احنا؟</h2>
+    <p>TechSavvy صفحة بتقدملك اخر اخبار التكنولوجيا، نصائح، وبرمجة بطريقة بسيطة وجميلة.</p>
+  </section>
+
+  <section class="hidden">
+    <h2>خدماتنا</h2>
+    <p>مقالات - نصائح تقنية - استشارات برمجية - دورات تدريبية اونلاين.</p>
+  </section>
+
+  <section class="hidden">
+    <h2>تواصل معانا</h2>
+    <p>ممكن تتواصل معانا في اي وقت على صفحاتنا!</p>
+  </section>
+
+  <footer class="hidden">
+    <div class="social">
+      <a href="#">فيسبوك</a>
+      <a href="#">انستجرام</a>
+      <a href="#">يوتيوب</a>
+    </div>
+    <p>TechSavvy &copy; 2025</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
