@@ -5,41 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechSavvy</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Animation on scroll */
-    .hidden {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease;
-    }
-
-    .show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
 </head>
 <body>
 
-  <header class="hidden">
-    <img src="images/logo.jpeg" alt="TechSavvy Logo">
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#about">مين احنا</a>
+    <a href="#services">خدماتنا</a>
+    <a href="#contact">تواصل معانا</a>
+  </nav>
+
+  <button id="backToTop">↑</button>
+
+  <header id="home" class="hidden">
+    <img loading="lazy" src="images/logo.jpeg" alt="TechSavvy Logo">
     <h1>اهلا بيكم في TechSavvy</h1>
     <p>بنخليك دايمًا سابق بخطوة في عالم التكنولوجيا 🚀</p>
   </header>
 
-  <section class="hidden">
+  <section id="about" class="hidden">
     <h2>مين احنا؟</h2>
     <p>TechSavvy صفحة بتقدملك اخر اخبار التكنولوجيا، نصائح، وبرمجة بطريقة بسيطة وجميلة.</p>
   </section>
 
-  <section class="hidden">
+  <section id="services" class="hidden">
     <h2>خدماتنا</h2>
     <p>مقالات - نصائح تقنية - استشارات برمجية - دورات تدريبية اونلاين.</p>
   </section>
 
-  <section class="hidden">
+  <section id="contact" class="hidden">
     <h2>تواصل معانا</h2>
-    <p>ممكن تتواصل معانا في اي وقت على صفحاتنا!</p>
+    <form action="https://formspree.io/f/{your-form-id}" method="POST" id="contact-form">
+      <input type="text" name="name" placeholder="اسمك" required>
+      <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+      <textarea name="message" rows="5" placeholder="رسالتك" required></textarea>
+      <button type="submit">ابعته</button>
+    </form>
+    <div class="success-message" id="success-message">تم إرسال الرسالة بنجاح! ✅</div>
   </section>
 
   <footer class="hidden">
@@ -51,20 +53,6 @@
     <p>TechSavvy &copy; 2025</p>
   </footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        } else {
-          entry.target.classList.remove('show');
-        }
-      });
-    });
-
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach(el => observer.observe(el));
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
